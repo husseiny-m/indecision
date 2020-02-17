@@ -5,7 +5,7 @@ const AddOption = ({ onAddOption }) => {
     e.preventDefault();
     const option = e.target.option.value.trim();
     if(option){
-      onAddOption();
+      onAddOption(option);
     }
     e.target.option.value = '';
   };

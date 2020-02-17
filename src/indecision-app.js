@@ -10,7 +10,7 @@ import AddOption from './components/add-option/add-option';
 class IndecisionApp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { options: ['Clean', 'Work', 'Learn React'] };
+    this.state = { options: props.options };
   }
   handleAddOption = (newOption) => {
     const newOptions = [...this.state.options, newOption];
@@ -28,7 +28,7 @@ class IndecisionApp extends React.Component {
   handelSelectAction = () => {
     const options = this.state.options;
     const randomOptionIndex = Math.floor(Math.random() * options.length);
-    alert('Please Start in: ' + options[randomOptionIndex]);
+    alert('You Can Start in: ' + options[randomOptionIndex]);
   };
   render() {
     return (
@@ -45,5 +45,9 @@ class IndecisionApp extends React.Component {
     );
   }
 }
+
+IndecisionApp.defaultProps = {
+  options: []
+};
 
 export default IndecisionApp;
