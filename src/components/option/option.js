@@ -7,9 +7,9 @@ const Option = ({ optionName, onRemoveOption }) => {
   return (
     <li>
       <span>{optionName}</span>
-      <a href="#" onClick={removeOption}>
+      <button onClick={removeOption}>
         Remove
-      </a>
+      </button>
     </li>
   );
 };

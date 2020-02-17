@@ -13,10 +13,7 @@ const Options = ({ options, onRemoveAll, onRemoveOption }) => {
     <div>
       <div>
         <h3>Your Options</h3>
-        <a href="#" onClick={removeAll}>
-          {' '}
-          Remove All
-        </a>
+        <button onClick={removeAll}>Remove All</button>
       </div>
       <ol>{optionElements}</ol>
     </div>
