@@ -3,7 +3,10 @@ import React from 'react';
 const AddOption = ({ onAddOption }) => {
   const addNewOption = (e) => {
     e.preventDefault();
-    onAddOption(e.target.option.value);
+    const option = e.target.option.value.trim();
+    if(option){
+      onAddOption();
+    }
     e.target.option.value = '';
   };
   return (
