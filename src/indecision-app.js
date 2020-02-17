@@ -14,15 +14,21 @@ class IndecisionApp extends React.Component {
   }
   handleAddOption = (newOption) => {
     const newOptions = [...this.state.options, newOption];
-    this.setState({ options: newOptions });
+    this.setState(() => {
+      return { options: newOptions };
+    });
   };
   handelRemoveAll = () => {
-    this.setState({ options: [] });
+    this.setState(() => {
+      return { options: [] };
+    });
   };
 
   handelRemoveOption = (optionName) => {
     const newOptions = this.state.options.filter((option) => option !== optionName);
-    this.setState({ options: newOptions });
+    this.setState(() => {
+      return { options: newOptions };
+    });
   };
 
   handelSelectAction = () => {
