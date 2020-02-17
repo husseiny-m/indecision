@@ -1,12 +1,8 @@
 import React from 'react';
 
-const Action = ({ onSelectAction }) => (
+const Action = ({ onSelectAction, hasOptions }) => (
   <div>
-    <button
-      onClick={() => {
-        onSelectAction();
-      }}
-    >
+    <button onClick={onSelectAction} disabled={!hasOptions}>
       What Should I Do?
     </button>
   </div>

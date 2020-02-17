@@ -13,6 +13,12 @@ class IndecisionApp extends React.Component {
     this.state = { options: props.options };
   }
   handleAddOption = (newOption) => {
+    if (!newOption) {
+      return 'Enter valid value to add new option!';
+    } else if (this.state.options.includes(newOption)) {
+      return 'This option already exists!';
+    }
+
     const newOptions = [...this.state.options, newOption];
     this.setState(() => {
       return { options: newOptions };
@@ -40,7 +46,10 @@ class IndecisionApp extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Action onSelectAction={this.handelSelectAction} />
+        <Action
+          onSelectAction={this.handelSelectAction}
+          hasOptions={this.state.options.length > 0}
+        />
         <Options
           options={this.state.options}
           onRemoveAll={this.handelRemoveAll}
