@@ -12,6 +12,7 @@ const Options = ({ options, onRemoveAll, onRemoveOption }) => {
       <div>
         <h3>Your Options</h3>
         <button onClick={onRemoveAll}>Remove All</button>
+        {options.length === 0 && <p>Please add an option to get started!</p>}
       </div>
       <ol>{optionElements}</ol>
     </div>

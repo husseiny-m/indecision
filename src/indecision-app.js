@@ -12,6 +12,21 @@ class IndecisionApp extends React.Component {
     super(props);
     this.state = { options: props.options };
   }
+
+  componentDidMount = () => {
+    try {
+      const options = JSON.parse(localStorage.getItem('options'));
+      if (options) {
+        this.setState(() => ({ options }));
+      }
+    } catch (e) {}
+  };
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (prevState.options.length !== this.state.options.length) {
+      localStorage.setItem('options', JSON.stringify(this.state.options));
+    }
+  };
   handleAddOption = (newOption) => {
     if (!newOption) {
       return 'Enter valid value to add new option!';
