@@ -1,4 +1,8 @@
 import React from 'react';
+
+
+import './add-option.styles.scss'
+
 class AddOption extends React.Component {
   constructor(props) {
     super(props);
@@ -20,10 +24,10 @@ class AddOption extends React.Component {
   render() {
     return (
       <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.addNewOption}>
-          <input type="text" name="option" />
-          <button type="submit">Add Option</button>
+        {this.state.error && <p className="add-option-error">{this.state.error}</p>}
+        <form className="add-option" onSubmit={this.addNewOption}>
+          <input className="add-option__input" type="text" name="option" />
+          <button className="button" type="submit">Add Option</button>
         </form>
       </div>
     );
